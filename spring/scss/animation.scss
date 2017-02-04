@@ -1,0 +1,81 @@
+.flake {
+  position: absolute;
+  transform-origin: 0 0;
+  //縦のアニメーション
+  -moz-animation: move-v 25s linear infinite;
+  -webkit-animation: move-v 25s linear infinite;
+  animation: move-v 25s linear infinite;
+  -moz-animation-fill-mode: forwards;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  img {
+    // 横のアニメーション
+    -moz-animation: move-h 3s ease infinite alternate;
+    -webkit-animation: move-h 3s ease infinite alternae;
+    animation: move-h 3s ease infinite alternate;
+    -moz-animation-fill-mode: forwards;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+  }
+}
+//個別のルール
+$flake-gutter: 20px;
+@for $i from 1 through 12 {
+  .flake-p#{$i} {
+    top: -#{random(20) * 20 + 20px};
+    @if $i % 2 == 0 {
+      right: $i * $flake-gutter;
+      -moz-animation-delay: 0.5s;
+      -webkit-animation-delay: 0.5s;
+      animation-delay: 0.5s;
+    } @else {
+      left: $i * $flake-gutter;
+    }
+    // 縦のアニメーションの時間の長さを15s以上でバラバラにする
+    -moz-animation-duration: random(20) + 15s;
+    -webkit-animation-duration: random(20) + 15s;
+    animation-duration: random(20) + 15s;
+    img {
+      -moz-animation-duration: random(10) + 5s;
+      -webkit-animation-duration: random(10) + 5s;
+      animation-duration: random(10) + 5s;
+    }
+  }
+}
+
+@keyframes move-v {
+  0% {
+    -moz-transform: translate3d(0, 0, 0) rotate(60deg);
+    -ms-transform: translate3d(0, 0, 0) rotate(60deg);
+    -webkit-transform: translate3d(0, 0, 0) rotate(60deg);
+    transform: translate3d(0, 0, 0) rotate(60deg);
+  }
+  100% {
+    -moz-transform: translate3d(0, 2000px, 0) rotate(-60deg);
+    -ms-transform: translate3d(0, 2000px, 0) rotate(-60deg);
+    -webkit-transform: translate3d(0, 2000px, 0) rotate(-60deg);
+    transform: translate3d(0, 1500px, 0) rotate(-60deg);
+    opacity: 0;
+  }
+}
+
+@keyframes move-h {
+  0% {
+    -moz-transform: translate3d(-30px, 0, 0) roteteY(0deg);
+    -ms-transform: translate3d(-30px, 0, 0) roteteY(0deg);
+    -webkit-transform: translate3d(-30px, 0, 0) roteteY(0deg);
+    transform: translate3d(-30px, 0, 0) roteteY(0deg);
+  }
+  50% {
+    -moz-transform: translate3d(0, 0, 0) roteteY(360deg);
+    -ms-transform: translate3d(0, 0, 0) roteteY(360deg);
+    -webkit-transform: translate3d(0, 0, 0) roteteY(360deg);
+    transform: translate3d(0, 0, 0) roteteY(360deg);
+  }
+  100% {
+    -moz-transform: translate3d(30px, 0, 0) roteteY(360deg);
+    -ms-transform: translate3d(30px, 0, 0) roteteY(360deg);
+    -webkit-transform: translate3d(30px, 0, 0) roteteY(360deg);
+    transform: translate3d(30px, 0, 0) roteteY(360deg);
+  }
+}

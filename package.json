@@ -1,0 +1,20 @@
+{
+  "name": "seasonal-css-suburi",
+  "version": "1.0.0",
+  "description": "This is my practice repositry for css animation.",
+  "main": "index.js",
+  "dependencies": {
+    "node-sass": "^4.5.0",
+    "nodemon": "^1.11.0"
+  },
+  "devDependencies": {
+    "node-sass": "^4.5.0",
+    "nodemon": "^1.11.0"
+  },
+  "scripts": {
+    "build-css": "node-sass --include-path scss spring/scss/animation.scss spring/css/animation.css",
+    "watch-css": "nodemon -e scss -x \"npm run build-css\""
+  },
+  "author": "",
+  "license": "ISC"
+}
